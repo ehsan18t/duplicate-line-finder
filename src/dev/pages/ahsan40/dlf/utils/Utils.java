@@ -3,6 +3,8 @@ package dev.pages.ahsan40.dlf.utils;
 import dev.pages.ahsan40.dlf.main.Main;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.paint.Color;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -23,23 +25,23 @@ public class Utils {
         });
     }
 
-    public static void changeScene(String page) {
-        try {
-            Main.root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(page)));
-            Main.scene = new Scene(Main.root,650,400);
-            makeDraggable(Main.scene);
-            Main.primaryStage.setScene(Main.scene);
-            Main.primaryStage.show();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
     public static void changeScene(String page, int h, int w) {
         try {
             Main.root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(page)));
             Main.scene = new Scene(Main.root, w, h);
+
+            // Make Stage Transparent
+            Main.primaryStage.initStyle(StageStyle.TRANSPARENT);
+
+            // Make Scene Draggable
+            Utils.makeDraggable(Main.scene);
+
+            // Make Scene Transparent
+            Main.scene.setFill(Color.TRANSPARENT);
+
+            // Make Scene Draggable
             makeDraggable(Main.scene);
+
             Main.primaryStage.setScene(Main.scene);
             Main.primaryStage.show();
         } catch (IOException e) {

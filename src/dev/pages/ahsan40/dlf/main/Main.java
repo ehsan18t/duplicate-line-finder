@@ -23,7 +23,7 @@ public class Main extends Application {
         // Window Settings
         primaryStage.setTitle(Configs.title + " " + Configs.version);
         primaryStage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResource(Configs.icon)).toURI().toString()));
-        Utils.changeScene(Configs.homePage, 400, 650);
+        Utils.changeScene(Configs.homePage, 600, 800);
     }
 
     public static void main(String[] args) {
