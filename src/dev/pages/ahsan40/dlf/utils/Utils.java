@@ -42,4 +42,12 @@ public class Utils {
             throw new RuntimeException(e);
         }
     }
+
+    public static void changeScene(String page) {
+        changeScene(page, 600, 800);
+    }
+
+    public static void exit() {
+        System.exit(0);
+    }
 }

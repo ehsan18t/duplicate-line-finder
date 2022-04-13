@@ -9,7 +9,7 @@ public class Configs {
 
     // App Info
     public static String title = "Duplicate Line Finer";
-    public static String version = "V1.0";
+    public static String version = "v1.0";
     public static String icon = "/resources/img/icon.png";
 
     // Author Info
