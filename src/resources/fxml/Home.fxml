@@ -8,31 +8,68 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.pages.ahsan40.dlf.controller.HomeController">
    <children>
       <AnchorPane layoutY="-1.0" prefHeight="238.0" prefWidth="800.0" style="-fx-background-color: #e3f7f1;">
          <children>
-            <AnchorPane layoutY="57.0" prefHeight="180.0" prefWidth="800.0">
+            <AnchorPane fx:id="pnlDragDrop" layoutY="57.0" onDragDropped="#handleFileDroppedEvent" onDragOver="#handleFileOverEvent" prefHeight="180.0" prefWidth="800.0">
                <children>
-                  <ImageView fitHeight="138.0" fitWidth="133.0" layoutX="327.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../img/Drag-Drop-icon.png" />
-                     </image>
-                  </ImageView>
-                  <Text layoutX="294.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Drag &amp; Drop or Click to Select File">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Text>
+                  <AnchorPane fx:id="pnlInstructions" layoutX="294.0" layoutY="9.0" prefHeight="163.0" prefWidth="212.0">
+                     <children>
+                        <ImageView fitHeight="138.0" fitWidth="133.0" layoutX="33.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/Drag-Drop-icon.png" />
+                           </image>
+                        </ImageView>
+                        <Text layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Drag &amp; Drop or Click to Select File">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="pnlFileInfo" layoutX="110.0" layoutY="23.0" prefHeight="114.0" prefWidth="579.0" visible="false">
+                     <children>
+                        <Text fill="#e66363" layoutX="14.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="File:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="txtFileName" fill="#6a44b7" layoutX="64.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="File Name" wrappingWidth="490.44610595703125">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fill="#e66363" layoutX="14.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Size:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="txtFileSize" fill="#6a44b7" layoutX="64.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="File Size" wrappingWidth="490.44610595703125">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fill="#e66363" layoutX="15.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Path:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="txtFilePath" fill="#6a44b7" layoutX="65.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="File Path" wrappingWidth="490.44610595703125">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
                </children>
             </AnchorPane>
-            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="761.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" styleClass="hov">
+            <ImageView fx:id="btnClose" fitHeight="25.0" fitWidth="25.0" layoutX="761.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" styleClass="hov">
                <image>
                   <Image url="@../img/exit.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="727.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" styleClass="hov">
+            <ImageView fx:id="btnMin" fitHeight="25.0" fitWidth="25.0" layoutX="727.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" styleClass="hov">
                <image>
                   <Image url="@../img/minimize.png" />
                </image>
@@ -42,7 +79,7 @@
                   <Image url="@../img/icon.png" />
                </image>
             </ImageView>
-            <Text fill="#454444" layoutX="56.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Duplicate Line Finder">
+            <Text fx:id="title" fill="#454444" layoutX="56.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Duplicate Line Finder">
                <font>
                   <Font size="18.0" />
                </font>
@@ -51,24 +88,24 @@
       </AnchorPane>
       <AnchorPane layoutX="85.0" layoutY="317.0" stylesheets="@../css/light.css">
          <children>
-            <CheckBox mnemonicParsing="false" text="Ignore Empty Lines">
+            <CheckBox fx:id="chkIgnoreEmptyLines" mnemonicParsing="false" text="Ignore Empty Lines">
                <font>
                   <Font size="18.0" />
                </font>
             </CheckBox>
-            <CheckBox layoutY="36.0" mnemonicParsing="false" text="Ignore White Space">
+            <CheckBox fx:id="chkIgnoreWhiteSpace" layoutY="36.0" mnemonicParsing="false" text="Ignore White Space">
                <font>
                   <Font size="18.0" />
                </font>
             </CheckBox>
-            <CheckBox layoutY="72.0" mnemonicParsing="false" text="Case Sensitive">
+            <CheckBox fx:id="chkCaseSensitive" layoutY="72.0" mnemonicParsing="false" text="Case Sensitive">
                <font>
                   <Font size="18.0" />
                </font>
             </CheckBox>
          </children>
       </AnchorPane>
-      <Button layoutX="495.0" layoutY="452.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="226.0" styleClass="scan" stylesheets="@../css/light.css" text="Scan">
+      <Button fx:id="btnScan" layoutX="495.0" layoutY="452.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="226.0" styleClass="scan" stylesheets="@../css/light.css" text="Scan">
          <font>
             <Font size="24.0" />
          </font>
