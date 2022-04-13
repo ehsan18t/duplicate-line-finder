@@ -64,12 +64,12 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <ImageView fx:id="btnClose" fitHeight="25.0" fitWidth="25.0" layoutX="761.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" styleClass="hov">
+            <ImageView fx:id="btnClose" fitHeight="25.0" fitWidth="25.0" layoutX="759.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" styleClass="hov">
                <image>
                   <Image url="@../img/exit.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="btnMin" fitHeight="25.0" fitWidth="25.0" layoutX="727.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" styleClass="hov">
+            <ImageView fx:id="btnMin" fitHeight="25.0" fitWidth="25.0" layoutX="725.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" styleClass="hov">
                <image>
                   <Image url="@../img/minimize.png" />
                </image>
