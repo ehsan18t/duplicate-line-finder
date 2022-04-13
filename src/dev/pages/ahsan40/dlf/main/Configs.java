@@ -3,6 +3,7 @@ package dev.pages.ahsan40.dlf.main;
 public class Configs {
     // Pages
     public static final String homePage = "/resources/fxml/Home.fxml";
+    public static final String resultPage = "/resources/fxml/Result.fxml";
 
     // Resources
     public static String css = "/resources/css/light.css";
