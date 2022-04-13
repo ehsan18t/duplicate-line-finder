@@ -8,10 +8,13 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.io.File;
 import java.net.URISyntaxException;
 import java.util.Objects;
 
 public class Main extends Application {
+    public static File file;
+    public static TextFile textFile;
     public static Stage primaryStage;
     public static Scene scene;
     public static Parent root;
