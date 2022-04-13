@@ -1,5 +1,6 @@
 package dev.pages.ahsan40.dlf.utils;
 
+import dev.pages.ahsan40.dlf.main.Configs;
 import dev.pages.ahsan40.dlf.main.Main;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -29,6 +30,9 @@ public class Utils {
         try {
             Main.root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(page)));
             Main.scene = new Scene(Main.root, w, h);
+
+            // Set CSS
+            Main.root.getStylesheets().add(Objects.requireNonNull(Main.class.getResource(Configs.css)).toExternalForm());
 
             // Make Stage Transparent
             Main.primaryStage.initStyle(StageStyle.TRANSPARENT);

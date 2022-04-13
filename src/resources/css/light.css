@@ -1,0 +1,125 @@
+/* Exit */
+.hov:hover{
+    -fx-opacity: 0.6;
+}
+
+
+/* Button */
+.scan {
+    -fx-text-fill: white;
+    -fx-font-size: 2.5em;
+    -fx-padding: 15 15 15 15;
+    -fx-background-color: linear-gradient(to right, #388956 0, #47b8a5 100);
+    -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+    -fx-background-radius: 8;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+}
+
+.scan:hover {
+    -fx-background-color: #01adc8;
+    -fx-background-image: none;
+}
+
+.scan:pressed {
+    -fx-padding: 10 15 13 15;
+    -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
+}
+
+
+
+
+/* CheckBox */
+.check-box {
+    /* default properties */
+    -fx-text-fill: #07664a;
+    selected-box-color: #28a3f4;
+    box-color: #ffffff;
+    mark-color: #ffffff;
+}
+
+.check-box:hover {
+    -fx-text-fill: #b62f02;
+}
+
+.check-box:selected > .box {
+    /* background color for selected checkbox */
+    -fx-background-color: selected-box-color;
+}
+
+.check-box > .box {
+    /* background color of unselected checkbox */
+    -fx-border-color: #015545;
+    -fx-border-width: 2px;
+    -fx-border-style: dotted;
+    -fx-background-color: box-color;
+}
+
+.check-box:selected > .box > .mark,
+.check-box:indeterminate  > .box > .mark {
+    /* modify mark color */
+    -fx-background-color: mark-color;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*                      */
+/* Will be used later */
+/*                      */
+
+/* Toggle Button */
+#theme.toggle-button {
+    -fx-background-color: #F4F9F9;
+    -fx-background-image: url("@../../../../res/img/002-half-moon.png");
+    -fx-border-width: 0px;
+    -fx-background-size: 45;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-radius: 25;
+}
+
+#theme.toggle-button:selected {
+    -fx-background-color: #575757;
+    -fx-background-image: url("@../../../../res/img/001-sun.png");
+}
+
+/* Menu Pane CSS */
+#menuPane {
+    -fx-background-color: rgba(240, 248, 247, 0.7);
+}
+
+.menu-item:hover {
+    -fx-background-color: #7ce7f2;
+    -fx-opacity: 0.6;
+}
+
+.menu-item-active {
+    -fx-background-color: #beedf9;
+}
+
+.menu-icon:hover{
+    -fx-opacity: 0.6;
+}
+
+.align-center {
+    -fx-alignment: center;
+}
+
+/* About */
+.my-pic {
+    -fx-background-radius: 20;
+}

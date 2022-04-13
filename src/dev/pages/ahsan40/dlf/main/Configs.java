@@ -4,6 +4,9 @@ public class Configs {
     // Pages
     public static final String homePage = "/resources/fxml/Home.fxml";
 
+    // Resources
+    public static String css = "/resources/css/light.css";
+
     // App Info
     public static String title = "Duplicate Line Finer";
     public static String version = "V1.0";
