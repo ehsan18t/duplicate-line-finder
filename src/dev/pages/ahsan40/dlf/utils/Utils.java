@@ -31,15 +31,6 @@ public class Utils {
             Main.root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(page)));
             Main.scene = new Scene(Main.root, w, h);
 
-            // Set CSS
-            Main.root.getStylesheets().add(Objects.requireNonNull(Main.class.getResource(Configs.css)).toExternalForm());
-
-            // Make Stage Transparent
-            Main.primaryStage.initStyle(StageStyle.TRANSPARENT);
-
-            // Make Scene Draggable
-            Utils.makeDraggable(Main.scene);
-
             // Make Scene Transparent
             Main.scene.setFill(Color.TRANSPARENT);
 
@@ -47,7 +38,6 @@ public class Utils {
             makeDraggable(Main.scene);
 
             Main.primaryStage.setScene(Main.scene);
-            Main.primaryStage.show();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
