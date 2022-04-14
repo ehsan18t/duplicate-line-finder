@@ -19,6 +19,10 @@ public class Main extends Application {
     public static Scene scene;
     public static Parent root;
 
+    public static void main(String[] args) {
+        launch(args);
+    }
+
     @Override
     public void start(Stage stage) throws URISyntaxException {
         // init
@@ -34,9 +38,5 @@ public class Main extends Application {
 
         // Show
         primaryStage.show();
-    }
-
-    public static void main(String[] args) {
-        launch(args);
     }
 }

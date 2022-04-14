@@ -1,5 +1,5 @@
 /* Exit */
-.hov:hover{
+.hov:hover {
     -fx-opacity: 0.6;
 }
 
@@ -17,16 +17,15 @@
 
 .button {
     -fx-text-fill: white;
-    -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+    -fx-background-insets: 0, 0 0 5 0, 0 0 6 0, 0 0 7 0;
     -fx-background-radius: 8;
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 4, 0, 0, 1);
 }
 
 .button:pressed {
     -fx-padding: 10 15 13 15;
-    -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
+    -fx-background-insets: 2 0 0 0, 2 0 3 0, 2 0 4 0, 2 0 5 0;
 }
-
 
 
 .scan {
@@ -53,8 +52,6 @@
 .back:hover {
     -fx-background-color: rgba(200, 134, 1, 0.91);
 }
-
-
 
 
 /* CheckBox */
@@ -84,32 +81,26 @@
 }
 
 .check-box:selected > .box > .mark,
-.check-box:indeterminate  > .box > .mark {
+.check-box:indeterminate > .box > .mark {
     /* modify mark color */
     -fx-background-color: mark-color;
 }
 
 
-
-
-
-
-
-
 /* Table View CSS */
-.table-view{
+.table-view {
     -fx-background-color: transparent;
 }
 
-.table-view:focused{
+.table-view:focused {
     -fx-background-color: transparent;
 }
 
-.table-view .column-header-background{
+.table-view .column-header-background {
     -fx-background-color: linear-gradient(#97ddeb 0%, #c2eaff 100%);
 }
 
-.table-view .column-header-background .label{
+.table-view .column-header-background .label {
     -fx-background-color: transparent;
     -fx-text-fill: #302f2f;
 }
@@ -118,17 +109,17 @@
     -fx-background-color: transparent;
 }
 
-.table-view .table-cell{
+.table-view .table-cell {
     -fx-text-fill: #313030;
 }
 
-.table-row-cell{
+.table-row-cell {
     -fx-background-color: -fx-table-cell-border-color, #f6fffa;
     -fx-background-insets: 0, 0 0 1 0;
     -fx-padding: 0.2em;
 }
 
-.table-row-cell:odd{
+.table-row-cell:odd {
     -fx-background-color: -fx-table-cell-border-color, #ddfeed;
     -fx-background-insets: 0, 0 0 1 0;
     -fx-padding: 0.2em;
@@ -143,30 +134,6 @@
 .table-view .column-header-background .filler {
     -fx-background-color: linear-gradient(#9de5f4 0%, #ffffff 100%);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /*                      */
@@ -203,7 +170,7 @@
     -fx-background-color: #beedf9;
 }
 
-.menu-icon:hover{
+.menu-icon:hover {
     -fx-opacity: 0.6;
 }
 

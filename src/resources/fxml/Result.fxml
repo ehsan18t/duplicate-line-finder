@@ -1,87 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
-
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.pages.ahsan40.dlf.controller.ResultController">
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17"
+            fx:controller="dev.pages.ahsan40.dlf.controller.ResultController">
     <children>
         <AnchorPane layoutY="-1.0" prefHeight="66.0" prefWidth="800.0" style="-fx-background-color: #e3f7f1;">
             <children>
-                <ImageView fx:id="btnClose" fitHeight="25.0" fitWidth="25.0" layoutX="759.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" styleClass="hov">
+                <ImageView fx:id="btnClose" fitHeight="25.0" fitWidth="25.0" layoutX="759.0" layoutY="22.0"
+                           pickOnBounds="true" preserveRatio="true" styleClass="hov">
                     <image>
-                        <Image url="@../img/exit.png" />
+                        <Image url="@../img/exit.png"/>
                     </image>
                 </ImageView>
-                <ImageView fx:id="btnMin" fitHeight="25.0" fitWidth="25.0" layoutX="725.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" styleClass="hov">
+                <ImageView fx:id="btnMin" fitHeight="25.0" fitWidth="25.0" layoutX="725.0" layoutY="22.0"
+                           pickOnBounds="true" preserveRatio="true" styleClass="hov">
                     <image>
-                        <Image url="@../img/minimize.png" />
+                        <Image url="@../img/minimize.png"/>
                     </image>
                 </ImageView>
-                <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="8.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="8.0" layoutY="13.0" pickOnBounds="true"
+                           preserveRatio="true">
                     <image>
-                        <Image url="@../img/icon.png" />
+                        <Image url="@../img/icon.png"/>
                     </image>
                 </ImageView>
-                <Text fx:id="title" fill="#454444" layoutX="56.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Duplicate Line Finder">
+                <Text fx:id="title" fill="#454444" layoutX="56.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="Duplicate Line Finder">
                     <font>
-                        <Font size="18.0" />
+                        <Font size="18.0"/>
                     </font>
                 </Text>
             </children>
         </AnchorPane>
-        <Button fx:id="btnBack" layoutX="634.0" layoutY="525.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" stylesheets="@../css/light.css" text="Back">
+        <Button fx:id="btnBack" layoutX="634.0" layoutY="525.0" mnemonicParsing="false" prefHeight="40.0"
+                prefWidth="150.0" stylesheets="@../css/light.css" text="Back">
             <font>
-                <Font size="24.0" />
+                <Font size="24.0"/>
             </font>
-         <styleClass>
-             <String fx:value="button" />
-             <String fx:value="small" />
-            <String fx:value="back" />
-         </styleClass>
+            <styleClass>
+                <String fx:value="button"/>
+                <String fx:value="small"/>
+                <String fx:value="back"/>
+            </styleClass>
         </Button>
-      <TableView fx:id="table" layoutX="13.0" layoutY="79.0" prefHeight="426.0" prefWidth="772.0" style="-fx-border-color: gray;" stylesheets="@../css/light.css">
-        <columns>
-          <TableColumn fx:id="colText" prefWidth="454.6908769607544" text="Text" />
-          <TableColumn fx:id="colLine" prefWidth="246.10906982421875" text="Lines" />
-            <TableColumn fx:id="colCopies" maxWidth="75.0545654296875" minWidth="0.0" prefWidth="65.45458984375" text="Copy" />
-        </columns>
-      </TableView>
-      <Button fx:id="btnCopy" layoutX="464.0" layoutY="525.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" stylesheets="@../css/light.css" text="Copy">
-         <font>
-            <Font size="24.0" />
-         </font>
-         <styleClass>
-             <String fx:value="button" />
-             <String fx:value="small" />
-            <String fx:value="scan" />
-         </styleClass>
-      </Button>
-      <Button fx:id="btnRemoveAll" layoutX="14.0" layoutY="525.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" stylesheets="@../css/light.css" text="Remove All">
-         <font>
-            <Font size="18.0" />
-         </font>
-         <styleClass>
-            <String fx:value="button" />
-            <String fx:value="small" />
-            <String fx:value="remove" />
-         </styleClass>
-      </Button>
-      <Button fx:id="btnRemoveDup" layoutX="182.0" layoutY="524.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="238.0" stylesheets="@../css/light.css" text="Remove Duplicates">
-         <font>
-            <Font size="18.0" />
-         </font>
-         <styleClass>
-            <String fx:value="button" />
-            <String fx:value="small" />
-            <String fx:value="remove" />
-         </styleClass>
-      </Button>
+        <TableView fx:id="table" layoutX="13.0" layoutY="79.0" prefHeight="426.0" prefWidth="772.0"
+                   style="-fx-border-color: gray;" stylesheets="@../css/light.css">
+            <columns>
+                <TableColumn fx:id="colText" prefWidth="454.6908769607544" text="Text"/>
+                <TableColumn fx:id="colLine" prefWidth="246.10906982421875" text="Lines"/>
+                <TableColumn fx:id="colCopies" maxWidth="75.0545654296875" minWidth="0.0" prefWidth="65.45458984375"
+                             text="Copy"/>
+            </columns>
+        </TableView>
+        <Button fx:id="btnCopy" layoutX="464.0" layoutY="525.0" mnemonicParsing="false" prefHeight="40.0"
+                prefWidth="150.0" stylesheets="@../css/light.css" text="Copy">
+            <font>
+                <Font size="24.0"/>
+            </font>
+            <styleClass>
+                <String fx:value="button"/>
+                <String fx:value="small"/>
+                <String fx:value="scan"/>
+            </styleClass>
+        </Button>
+        <Button fx:id="btnRemoveAll" layoutX="14.0" layoutY="525.0" mnemonicParsing="false" prefHeight="40.0"
+                prefWidth="150.0" stylesheets="@../css/light.css" text="Remove All">
+            <font>
+                <Font size="18.0"/>
+            </font>
+            <styleClass>
+                <String fx:value="button"/>
+                <String fx:value="small"/>
+                <String fx:value="remove"/>
+            </styleClass>
+        </Button>
+        <Button fx:id="btnRemoveDup" layoutX="182.0" layoutY="524.0" mnemonicParsing="false" prefHeight="57.0"
+                prefWidth="238.0" stylesheets="@../css/light.css" text="Remove Duplicates">
+            <font>
+                <Font size="18.0"/>
+            </font>
+            <styleClass>
+                <String fx:value="button"/>
+                <String fx:value="small"/>
+                <String fx:value="remove"/>
+            </styleClass>
+        </Button>
     </children>
 </AnchorPane>

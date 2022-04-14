@@ -5,7 +5,6 @@ import dev.pages.ahsan40.dlf.main.Main;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
-import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.util.Objects;

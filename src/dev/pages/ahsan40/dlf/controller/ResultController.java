@@ -123,19 +123,20 @@ public class ResultController implements Initializable {
 
     private void removeLines(Line l) {
         // Removing item from original list
-        for(int i: l.getAllLine()) {
+        for (int i : l.getAllLine()) {
             original.remove(i - 1);
         }
 
         // Write original list
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter(Main.textFile.getFile().getAbsoluteFile()));
-            for (Line ln: original) {
+            for (Line ln : original) {
                 bw.write(ln.getText());
                 bw.newLine();
             }
             bw.close();
-        } catch (Exception ignored){}
+        } catch (Exception ignored) {
+        }
     }
 
     private void btnBackAction(MouseEvent mouseEvent) {
@@ -144,8 +145,8 @@ public class ResultController implements Initializable {
 
     public ObservableList<Line> getLines() {
         ObservableList<Line> allLines = FXCollections.observableArrayList();
-        for (Map.Entry<String, Line> l: lines.entrySet()) {
-                allLines.addAll(l.getValue());
+        for (Map.Entry<String, Line> l : lines.entrySet()) {
+            allLines.addAll(l.getValue());
         }
 
         // sort by Line No.
@@ -183,7 +184,8 @@ public class ResultController implements Initializable {
                     lines.remove("");
             }
             br.close();
-        } catch (IOException ignored) {}
+        } catch (IOException ignored) {
+        }
     }
 
     private void addLine(String key, String str, int line) {

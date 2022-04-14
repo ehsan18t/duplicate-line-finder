@@ -18,7 +18,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 
-import java.io.*;
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
