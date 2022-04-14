@@ -35,24 +35,24 @@
                 </Text>
             </children>
         </AnchorPane>
-        <Button fx:id="btnScan" layoutX="558.0" layoutY="517.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="227.0" styleClass="scan" stylesheets="@../css/light.css" text="Back">
+        <Button fx:id="btnBack" layoutX="558.0" layoutY="517.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="227.0" styleClass="scan" stylesheets="@../css/light.css" text="Back">
             <font>
                 <Font size="24.0" />
             </font>
         </Button>
-      <TableView layoutY="65.0" prefHeight="445.0" prefWidth="800.0">
+      <TableView fx:id="table" layoutY="65.0" prefHeight="445.0" prefWidth="800.0">
         <columns>
-          <TableColumn prefWidth="61.09091317653656" text="LN" />
-          <TableColumn prefWidth="680.727222442627" text="C2" />
-            <TableColumn prefWidth="75.0" text="Copy" />
+          <TableColumn fx:id="colLine" prefWidth="61.09091317653656" text="LN" />
+          <TableColumn fx:id="colText" prefWidth="680.727222442627" text="C2" />
+            <TableColumn fx:id="colCopies" prefWidth="75.0" text="Copy" />
         </columns>
       </TableView>
-      <Button fx:id="btnScan1" layoutX="304.0" layoutY="517.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="237.0" styleClass="scan" stylesheets="@../css/light.css" text="Copy">
+      <Button fx:id="btnCopy" layoutX="304.0" layoutY="517.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="237.0" styleClass="scan" stylesheets="@../css/light.css" text="Copy">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button fx:id="btnScan11" layoutX="14.0" layoutY="517.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="269.0" styleClass="scan" stylesheets="@../css/light.css" text="Remove">
+      <Button fx:id="btnRemove" layoutX="14.0" layoutY="517.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="269.0" styleClass="scan" stylesheets="@../css/light.css" text="Remove">
          <font>
             <Font size="24.0" />
          </font>
