@@ -118,8 +118,9 @@ public class ResultController implements Initializable {
         for (Map.Entry<String, Line> l: lines.entrySet()) {
                 allLines.addAll(l.getValue());
         }
+        
         // sort by Line No.
-//        allLines.sort(Comparator.comparing(Line::getLines));
+        allLines.sort(Comparator.comparing(Line::getLines));
         return allLines;
     }
 
