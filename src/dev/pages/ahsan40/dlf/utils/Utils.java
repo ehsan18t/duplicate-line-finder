@@ -37,6 +37,9 @@ public class Utils {
             // Make Scene Draggable
             makeDraggable(Main.scene);
 
+            // Apply CSS
+            Main.root.getStylesheets().add(Objects.requireNonNull(Main.class.getResource(Configs.css)).toExternalForm());
+
             Main.primaryStage.setScene(Main.scene);
         } catch (IOException e) {
             throw new RuntimeException(e);

@@ -30,7 +30,6 @@ public class Main extends Application {
         Utils.changeScene(Configs.homePage, 600, 800);
 
         // Window Style
-        root.getStylesheets().add(Objects.requireNonNull(Main.class.getResource(Configs.css)).toExternalForm());
         primaryStage.initStyle(StageStyle.TRANSPARENT);
 
         // Show
