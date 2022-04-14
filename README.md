@@ -11,7 +11,7 @@
   <!-- Downloads Size -->
     <img src="https://img.shields.io/github/repo-size/Ahsan40/duplicate-line-finder?color=orange&label=Size&style=for-the-badge" alt="Downloads Size" />
   <!-- Download counts -->
-    <img src="https://img.shields.io/github/downloads/Ahsan40/duplicate-line-finder/total?color=green&style=for-the-badge" alt="Download Count" />
+    <img src="https://img.shields.io/github/downloads/Ahsan40/duplicate-line-finder/latest/total?color=green&style=for-the-badge" alt="Download Count" />
 </div>
 
 
