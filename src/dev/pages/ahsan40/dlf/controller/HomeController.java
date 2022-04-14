@@ -1,18 +1,14 @@
 package dev.pages.ahsan40.dlf.controller;
 
 import dev.pages.ahsan40.dlf.main.Configs;
-import dev.pages.ahsan40.dlf.main.Line;
 import dev.pages.ahsan40.dlf.main.Main;
 import dev.pages.ahsan40.dlf.main.TextFile;
 import dev.pages.ahsan40.dlf.utils.Utils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.TextArea;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
@@ -21,11 +17,9 @@ import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 
 import java.io.File;
 import java.net.URL;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class HomeController implements Initializable {

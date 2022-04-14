@@ -8,7 +8,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
@@ -84,8 +83,9 @@ public class ResultController implements Initializable {
         btnBack.setOnMouseClicked(this::btnBackAction);
         btnRemoveAll.setOnMouseClicked(this::btnRemoveAllAction);
         btnRemoveDup.setOnMouseClicked(this::btnRemoveDupAction);
-        btnCopy.setOnMouseClicked(this::btnCopyAction);table.setOnMouseClicked((MouseEvent event) -> {
-            if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2){
+        btnCopy.setOnMouseClicked(this::btnCopyAction);
+        table.setOnMouseClicked((MouseEvent event) -> {
+            if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2) {
                 viewData(table.getSelectionModel().getSelectedItem());
             }
         });
