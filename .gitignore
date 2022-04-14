@@ -29,4 +29,3 @@ src/META-INF/MANIFEST.MF
 
 # Exception
 !/src/lib/*
-!duplicate-line-finder-NetBeans.zip
