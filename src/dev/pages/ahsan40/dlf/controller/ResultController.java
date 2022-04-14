@@ -16,9 +16,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.util.*;
 
@@ -59,6 +57,10 @@ public class ResultController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        // Window Settings
+        Main.primaryStage.setTitle(Configs.title + " " + Configs.version);
+        title.setText(Configs.title + " " + Configs.version);
+
         // init
         lines = new HashMap<>();
         readLines();
@@ -73,6 +75,27 @@ public class ResultController implements Initializable {
         btnMin.setOnMouseClicked(this::btnMinAction);
         btnClose.setOnMouseClicked(this::btnCloseAction);
         btnBack.setOnMouseClicked(this::btnBackAction);
+        btnRemove.setOnMouseClicked(this::btnRemoveAction);
+        btnCopy.setOnMouseClicked(this::btnCopyAction);
+    }
+
+    private void btnCopyAction(MouseEvent mouseEvent) {
+        Line l = table.getSelectionModel().getSelectedItem();
+        Utils.copyToClipboard(l.getText());
+    }
+
+    private void btnRemoveAction(MouseEvent mouseEvent) {
+        Line l = table.getSelectionModel().getSelectedItem();
+        lines.remove(l.getKey());
+
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter(Main.textFile.getFile().getAbsoluteFile()));
+            for (Map.Entry<String, Line> entry: lines.entrySet()) {
+                bw.write(entry.getValue().getText());
+                bw.newLine();
+            }
+            bw.close();
+        } catch (Exception ignored){}
     }
 
     private void btnBackAction(MouseEvent mouseEvent) {
@@ -126,7 +149,7 @@ public class ResultController implements Initializable {
             l.addLine(line);
             lines.put(key, l);
         } else
-            lines.put(key, new Line(line, str));
+            lines.put(key, new Line(line, str, key));
     }
 
 

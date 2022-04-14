@@ -1,6 +1,7 @@
 module duplicate.line.finder {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.desktop;
 
     exports dev.pages.ahsan40.dlf.main;
     opens dev.pages.ahsan40.dlf.main to javafx.fxml;

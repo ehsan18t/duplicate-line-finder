@@ -53,4 +53,9 @@ public class Utils {
     public static void exit() {
         System.exit(0);
     }
+
+    public static void copyToClipboard(String text) {
+        java.awt.Toolkit.getDefaultToolkit().getSystemClipboard()
+                .setContents(new java.awt.datatransfer.StringSelection(text), null);
+    }
 }
