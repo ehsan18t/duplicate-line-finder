@@ -5,11 +5,19 @@ import java.util.ArrayList;
 public class Line {
     private ArrayList<Integer> lines;
     private String text;
+    private String key;
 
     public Line(int line, String text) {
         this.lines = new ArrayList<>();
         this.lines.add(line);
         this.text = text;
+    }
+
+    public Line(int line, String text, String key) {
+        this.lines = new ArrayList<>();
+        this.lines.add(line);
+        this.text = text;
+        this.key = key;
     }
 
     public String getLines() {
@@ -38,5 +46,13 @@ public class Line {
 
     public int getCopies() {
         return lines.size();
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 }
