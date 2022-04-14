@@ -11,7 +11,7 @@ public class Configs {
     // Resources
     public static String css = "/resources/css/light.css";
     // App Info
-    public static String title = "Duplicate Line Finer";
+    public static String title = "Duplicate Line Finder";
     public static String version = "v1.0";
     public static String icon = "/resources/img/icon.png";
 }
