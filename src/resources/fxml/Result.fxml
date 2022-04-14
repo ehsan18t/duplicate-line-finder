@@ -13,12 +13,12 @@
     <children>
         <AnchorPane layoutY="-1.0" prefHeight="66.0" prefWidth="800.0" style="-fx-background-color: #e3f7f1;">
             <children>
-                <ImageView fx:id="btnClose" fitHeight="25.0" fitWidth="25.0" layoutX="759.0" layoutY="22.0" onDragDetected="#btnCloseAction" pickOnBounds="true" preserveRatio="true" styleClass="hov">
+                <ImageView fx:id="btnClose" fitHeight="25.0" fitWidth="25.0" layoutX="759.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" styleClass="hov">
                     <image>
                         <Image url="@../img/exit.png" />
                     </image>
                 </ImageView>
-                <ImageView fx:id="btnMin" fitHeight="25.0" fitWidth="25.0" layoutX="725.0" layoutY="22.0" onDragDetected="#btnMinAction" pickOnBounds="true" preserveRatio="true" styleClass="hov">
+                <ImageView fx:id="btnMin" fitHeight="25.0" fitWidth="25.0" layoutX="725.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" styleClass="hov">
                     <image>
                         <Image url="@../img/minimize.png" />
                     </image>
@@ -40,11 +40,11 @@
                 <Font size="24.0" />
             </font>
         </Button>
-      <TableView fx:id="table" layoutY="65.0" prefHeight="445.0" prefWidth="800.0">
+      <TableView fx:id="table" layoutX="13.0" layoutY="79.0" prefHeight="426.0" prefWidth="772.0" style="-fx-border-color: gray;" stylesheets="@../css/light.css">
         <columns>
-          <TableColumn fx:id="colLine" prefWidth="61.09091317653656" text="LN" />
-          <TableColumn fx:id="colText" prefWidth="680.727222442627" text="C2" />
-            <TableColumn fx:id="colCopies" prefWidth="75.0" text="Copy" />
+          <TableColumn fx:id="colText" prefWidth="454.6908769607544" text="Text" />
+          <TableColumn fx:id="colLine" prefWidth="246.10906982421875" text="Lines" />
+            <TableColumn fx:id="colCopies" maxWidth="75.0545654296875" minWidth="0.0" prefWidth="65.45458984375" text="Copy" />
         </columns>
       </TableView>
       <Button fx:id="btnCopy" layoutX="304.0" layoutY="517.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="237.0" styleClass="scan" stylesheets="@../css/light.css" text="Copy">

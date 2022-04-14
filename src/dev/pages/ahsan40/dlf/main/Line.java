@@ -35,4 +35,8 @@ public class Line {
     public void setText(String text) {
         this.text = text;
     }
+
+    public int getCopies() {
+        return lines.size();
+    }
 }

@@ -1,5 +1,6 @@
 package dev.pages.ahsan40.dlf.controller;
 
+import dev.pages.ahsan40.dlf.main.Configs;
 import dev.pages.ahsan40.dlf.main.Line;
 import dev.pages.ahsan40.dlf.main.Main;
 import dev.pages.ahsan40.dlf.utils.Utils;
@@ -15,6 +16,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
@@ -40,7 +44,7 @@ public class ResultController implements Initializable {
     private TableColumn<Line, Integer> colCopies;
 
     @FXML
-    private TableColumn<Line, Integer> colLine;
+    private TableColumn<Line, String> colLine;
 
     @FXML
     private TableColumn<Line, String> colText;
@@ -57,12 +61,22 @@ public class ResultController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // init
         lines = new HashMap<>();
+        readLines();
 
         // Table
-        colLine.setCellValueFactory(new PropertyValueFactory<>("line"));
+        colLine.setCellValueFactory(new PropertyValueFactory<>("lines"));
         colText.setCellValueFactory(new PropertyValueFactory<>("text"));
         colCopies.setCellValueFactory(new PropertyValueFactory<>("copies"));
         table.setItems(getLines());
+
+        // References
+        btnMin.setOnMouseClicked(this::btnMinAction);
+        btnClose.setOnMouseClicked(this::btnCloseAction);
+        btnBack.setOnMouseClicked(this::btnBackAction);
+    }
+
+    private void btnBackAction(MouseEvent mouseEvent) {
+        Utils.changeScene(Configs.homePage);
     }
 
     public ObservableList<Line> getLines() {
@@ -74,6 +88,39 @@ public class ResultController implements Initializable {
         allLines.sort(Comparator.comparing(Line::getLines));
         return allLines;
     }
+
+    private void readLines() {
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(Main.textFile.getFile().getAbsoluteFile()));
+            String str;
+            int i = 0;
+            while ((str = br.readLine()) != null) {
+                i++;
+                String key = str;
+
+                // Case-Sensitive Disabled
+                if (!Main.textFile.isCaseSensitive())
+                    key = str.toLowerCase();
+
+                // Ignore White Space Enabled
+                if (Main.textFile.isIgnoreWhiteSpace())
+                    key = key.replaceAll(" ", "").trim();
+
+                // Ignore Empty Lines
+                if (!Main.textFile.isIgnoreEmptyLines() && str.equals("")) {
+                    if (lines.containsKey(str)) {
+                        Line l = lines.get(str);
+                        l.addLine(i);
+                        lines.put(str, l);
+                    } else
+                        lines.put(str, new Line(i, str));
+                } else
+                    lines.put(key, new Line(i, str));
+            }
+            br.close();
+        } catch (IOException ignored) {}
+    }
+
 
     private void btnCloseAction(MouseEvent event) {
         Utils.exit();
