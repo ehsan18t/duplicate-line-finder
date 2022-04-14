@@ -35,7 +35,10 @@ public class ResultController implements Initializable {
     private ImageView btnMin;
 
     @FXML
-    private Button btnRemove;
+    private Button btnRemoveAll;
+
+    @FXML
+    private Button btnRemoveDup;
 
 
     @FXML
@@ -76,7 +79,8 @@ public class ResultController implements Initializable {
         btnMin.setOnMouseClicked(this::btnMinAction);
         btnClose.setOnMouseClicked(this::btnCloseAction);
         btnBack.setOnMouseClicked(this::btnBackAction);
-        btnRemove.setOnMouseClicked(this::btnRemoveAction);
+        btnRemoveAll.setOnMouseClicked(this::btnRemoveAllAction);
+        btnRemoveDup.setOnMouseClicked(this::btnRemoveDupAction);
         btnCopy.setOnMouseClicked(this::btnCopyAction);
     }
 
@@ -85,7 +89,27 @@ public class ResultController implements Initializable {
         Utils.copyToClipboard(l.getText());
     }
 
-    private void btnRemoveAction(MouseEvent mouseEvent) {
+    private void btnRemoveDupAction(MouseEvent mouseEvent) {
+        // Remove item from table
+        Line l = table.getSelectionModel().getSelectedItem();
+        int tableIndex = table.getSelectionModel().getSelectedIndex();
+
+        // Sorting line list in Desc
+        l.getAllLine().sort(Comparator.reverseOrder());
+        int lastIndex = l.getAllLine().size() - 1;  // last index
+        int firstLineNo = l.getAllLine().get(lastIndex);
+        l.getAllLine().remove(lastIndex);   // removed last
+
+        // Remove desired lines
+        removeLines(l);
+
+        // Refresh Table View
+        l.getAllLine().clear();
+        l.addLine(firstLineNo);
+        table.getItems().set(tableIndex, l);
+    }
+
+    private void btnRemoveAllAction(MouseEvent mouseEvent) {
         // Remove item from table
         Line l = table.getSelectionModel().getSelectedItem();
         table.getItems().remove(l);
@@ -93,6 +117,11 @@ public class ResultController implements Initializable {
         // Sorting line list in Desc
         l.getAllLine().sort(Comparator.reverseOrder());
 
+        // Remove desired lines
+        removeLines(l);
+    }
+
+    private void removeLines(Line l) {
         // Removing item from original list
         for(int i: l.getAllLine()) {
             original.remove(i - 1);

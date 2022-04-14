@@ -36,12 +36,13 @@
                 </Text>
             </children>
         </AnchorPane>
-        <Button fx:id="btnBack" layoutX="558.0" layoutY="517.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="227.0" stylesheets="@../css/light.css" text="Back">
+        <Button fx:id="btnBack" layoutX="634.0" layoutY="525.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" stylesheets="@../css/light.css" text="Back">
             <font>
                 <Font size="24.0" />
             </font>
          <styleClass>
-            <String fx:value="button" />
+             <String fx:value="button" />
+             <String fx:value="small" />
             <String fx:value="back" />
          </styleClass>
         </Button>
@@ -52,21 +53,33 @@
             <TableColumn fx:id="colCopies" maxWidth="75.0545654296875" minWidth="0.0" prefWidth="65.45458984375" text="Copy" />
         </columns>
       </TableView>
-      <Button fx:id="btnCopy" layoutX="304.0" layoutY="517.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="237.0" stylesheets="@../css/light.css" text="Copy">
+      <Button fx:id="btnCopy" layoutX="464.0" layoutY="525.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" stylesheets="@../css/light.css" text="Copy">
          <font>
             <Font size="24.0" />
          </font>
          <styleClass>
-            <String fx:value="button" />
+             <String fx:value="button" />
+             <String fx:value="small" />
             <String fx:value="scan" />
          </styleClass>
       </Button>
-      <Button fx:id="btnRemove" layoutX="14.0" layoutY="517.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="269.0" stylesheets="@../css/light.css" text="Remove">
+      <Button fx:id="btnRemoveAll" layoutX="14.0" layoutY="525.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" stylesheets="@../css/light.css" text="Remove All">
          <font>
-            <Font size="24.0" />
+            <Font size="18.0" />
          </font>
          <styleClass>
             <String fx:value="button" />
+            <String fx:value="small" />
+            <String fx:value="remove" />
+         </styleClass>
+      </Button>
+      <Button fx:id="btnRemoveDup" layoutX="182.0" layoutY="524.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="238.0" stylesheets="@../css/light.css" text="Remove Duplicates">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <styleClass>
+            <String fx:value="button" />
+            <String fx:value="small" />
             <String fx:value="remove" />
          </styleClass>
       </Button>
