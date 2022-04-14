@@ -106,19 +106,27 @@ public class ResultController implements Initializable {
                 if (Main.textFile.isIgnoreWhiteSpace())
                     key = key.replaceAll(" ", "").trim();
 
-                // Ignore Empty Lines
-                if (!Main.textFile.isIgnoreEmptyLines() && str.equals("")) {
-                    if (lines.containsKey(str)) {
-                        Line l = lines.get(str);
-                        l.addLine(i);
-                        lines.put(str, l);
-                    } else
-                        lines.put(str, new Line(i, str));
-                } else
-                    lines.put(key, new Line(i, str));
+                // Ignore Empty Lines Disabled
+                if (!Main.textFile.isIgnoreEmptyLines() && str.equals(""))
+                    addLine(str, str, i);
+                else
+                    addLine(key, str, i);
+
+                // ignore Empty Lines Enabled
+                if (Main.textFile.isIgnoreEmptyLines())
+                    lines.remove("");
             }
             br.close();
         } catch (IOException ignored) {}
+    }
+
+    private void addLine(String key, String str, int line) {
+        if (lines.containsKey(key)) {
+            Line l = lines.get(key);
+            l.addLine(line);
+            lines.put(key, l);
+        } else
+            lines.put(key, new Line(line, str));
     }
 
 
