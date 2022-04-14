@@ -8,13 +8,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 import java.io.*;
 import java.net.URL;
@@ -81,8 +84,52 @@ public class ResultController implements Initializable {
         btnBack.setOnMouseClicked(this::btnBackAction);
         btnRemoveAll.setOnMouseClicked(this::btnRemoveAllAction);
         btnRemoveDup.setOnMouseClicked(this::btnRemoveDupAction);
-        btnCopy.setOnMouseClicked(this::btnCopyAction);
+        btnCopy.setOnMouseClicked(this::btnCopyAction);table.setOnMouseClicked((MouseEvent event) -> {
+            if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2){
+                viewData(table.getSelectionModel().getSelectedItem());
+            }
+        });
     }
+
+
+    private void viewData(Line line) {
+        if (line != null) {
+            Alert alert = new Alert(null, null, ButtonType.OK);
+
+            // Alert Window Settings
+            alert.setTitle("View Data");
+            alert.setHeaderText(null);
+            alert.getDialogPane().setPrefSize(800, 600);
+
+            // Add a custom icon.
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image(Objects.requireNonNull(Main.class.getResource(Configs.icon)).toString()));
+
+            // Content
+            TextArea t1 = new TextArea(line.getText());
+            t1.setEditable(false);
+            t1.setPrefSize(700, 250);
+            t1.setWrapText(true);
+
+            TextArea t2 = new TextArea(line.getLines());
+            t2.setEditable(false);
+            t2.setPrefSize(700, 250);
+            t2.setWrapText(true);
+
+            // Bind
+            VBox layout = new VBox();
+            layout.getChildren().add(new Label("Text"));
+            layout.getChildren().add(t1);
+            layout.getChildren().add(new Label(" "));
+            layout.getChildren().add(new Label("Lines"));
+            layout.getChildren().add(t2);
+
+            // Show
+            alert.getDialogPane().setContent(layout);
+            alert.showAndWait();
+        }
+    }
+
 
     private void btnCopyAction(MouseEvent mouseEvent) {
         Line l = table.getSelectionModel().getSelectedItem();
