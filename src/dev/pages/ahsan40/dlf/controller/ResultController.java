@@ -50,8 +50,8 @@ public class ResultController implements Initializable {
     @FXML
     private TableView<Line> table;
 
-    HashMap<String, Line> lines;
-
+    private HashMap<String, Line> lines;
+    private ArrayList<Line> original;
     @FXML
     private Text title;
 
@@ -62,6 +62,7 @@ public class ResultController implements Initializable {
         title.setText(Configs.title + " " + Configs.version);
 
         // init
+        original = new ArrayList<>();
         lines = new HashMap<>();
         readLines();
 
@@ -85,13 +86,23 @@ public class ResultController implements Initializable {
     }
 
     private void btnRemoveAction(MouseEvent mouseEvent) {
+        // Remove item from table
         Line l = table.getSelectionModel().getSelectedItem();
-        lines.remove(l.getKey());
+        table.getItems().remove(l);
 
+        // Sorting line list in Desc
+        l.getAllLine().sort(Comparator.reverseOrder());
+
+        // Removing item from original list
+        for(int i: l.getAllLine()) {
+            original.remove(i - 1);
+        }
+
+        // Write original list
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter(Main.textFile.getFile().getAbsoluteFile()));
-            for (Map.Entry<String, Line> entry: lines.entrySet()) {
-                bw.write(entry.getValue().getText());
+            for (Line ln: original) {
+                bw.write(ln.getText());
                 bw.newLine();
             }
             bw.close();
@@ -108,7 +119,7 @@ public class ResultController implements Initializable {
                 allLines.addAll(l.getValue());
         }
         // sort by Line No.
-        allLines.sort(Comparator.comparing(Line::getLines));
+//        allLines.sort(Comparator.comparing(Line::getLines));
         return allLines;
     }
 
@@ -120,6 +131,7 @@ public class ResultController implements Initializable {
             while ((str = br.readLine()) != null) {
                 i++;
                 String key = str;
+                original.add(new Line(i, str, key));
 
                 // Case-Sensitive Disabled
                 if (!Main.textFile.isCaseSensitive())
@@ -130,10 +142,11 @@ public class ResultController implements Initializable {
                     key = key.replaceAll(" ", "").trim();
 
                 // Ignore Empty Lines Disabled
-                if (!Main.textFile.isIgnoreEmptyLines() && str.equals(""))
+                if (!Main.textFile.isIgnoreEmptyLines() && str.equals("")) {
                     addLine(str, str, i);
-                else
+                } else {
                     addLine(key, str, i);
+                }
 
                 // ignore Empty Lines Enabled
                 if (Main.textFile.isIgnoreEmptyLines())
