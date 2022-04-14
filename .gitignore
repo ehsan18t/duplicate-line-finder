@@ -24,8 +24,10 @@ hs_err_pid*
 
 # Custom
 out/
+/.idea/artifacts/*
 /.idea/uiDesigner.xml
 src/META-INF/MANIFEST.MF
+src/MainRun.java
 
 # Exception
 !/src/lib/*
