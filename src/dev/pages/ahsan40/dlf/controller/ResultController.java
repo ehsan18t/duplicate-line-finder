@@ -92,33 +92,42 @@ public class ResultController implements Initializable {
     private void btnRemoveDupAction(MouseEvent mouseEvent) {
         // Remove item from table
         Line l = table.getSelectionModel().getSelectedItem();
-        int tableIndex = table.getSelectionModel().getSelectedIndex();
+        if (l == null)
+            Utils.alert("Error!", "Please Select An Item First!", "Error");
+        else if (l.getAllLine().size() == 1)
+            Utils.alert("Warning!!", "There are only 1 copy of this line!", "Warning");
+        else {
+            int tableIndex = table.getSelectionModel().getSelectedIndex();
 
-        // Sorting line list in Desc
-        l.getAllLine().sort(Comparator.reverseOrder());
-        int lastIndex = l.getAllLine().size() - 1;  // last index
-        int firstLineNo = l.getAllLine().get(lastIndex);
-        l.getAllLine().remove(lastIndex);   // removed last
+            // Sorting line list in Desc
+            l.getAllLine().sort(Comparator.reverseOrder());
+            int lastIndex = l.getAllLine().size() - 1;  // last index
+            int firstLineNo = l.getAllLine().get(lastIndex);
+            l.getAllLine().remove(lastIndex);   // removed last
 
-        // Remove desired lines
-        removeLines(l);
+            // Remove desired lines
+            removeLines(l);
 
-        // Refresh Table View
-        l.getAllLine().clear();
-        l.addLine(firstLineNo);
-        table.getItems().set(tableIndex, l);
+            // Refresh Table View
+            l.getAllLine().clear();
+            l.addLine(firstLineNo);
+            table.getItems().set(tableIndex, l);
+        }
     }
 
     private void btnRemoveAllAction(MouseEvent mouseEvent) {
         // Remove item from table
         Line l = table.getSelectionModel().getSelectedItem();
-        table.getItems().remove(l);
+        if (l != null) {
+            table.getItems().remove(l);
 
-        // Sorting line list in Desc
-        l.getAllLine().sort(Comparator.reverseOrder());
+            // Sorting line list in Desc
+            l.getAllLine().sort(Comparator.reverseOrder());
 
-        // Remove desired lines
-        removeLines(l);
+            // Remove desired lines
+            removeLines(l);
+        } else
+            Utils.alert("Error!", "Please Select An Item First!", "Error");
     }
 
     private void removeLines(Line l) {

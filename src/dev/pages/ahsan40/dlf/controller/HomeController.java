@@ -79,8 +79,12 @@ public class HomeController implements Initializable {
     }
 
     private void btnScanAction(ActionEvent actionEvent) {
-        Main.textFile = new TextFile(chkIgnoreEmptyLines.isSelected(), chkIgnoreWhiteSpace.isSelected(), chkCaseSensitive.isSelected(), Main.file);
-        Utils.changeScene(Configs.resultPage, 600, 800);
+        if (Main.file != null) {
+            Main.textFile = new TextFile(chkIgnoreEmptyLines.isSelected(), chkIgnoreWhiteSpace.isSelected(), chkCaseSensitive.isSelected(), Main.file);
+            Utils.changeScene(Configs.resultPage, 600, 800);
+        } else {
+            Utils.alert("File Not Found!", "Please Select A File First!!", "Error");
+        }
     }
 
     private void handleFile(File file) {

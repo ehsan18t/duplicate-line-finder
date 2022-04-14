@@ -4,7 +4,10 @@ import dev.pages.ahsan40.dlf.main.Configs;
 import dev.pages.ahsan40.dlf.main.Main;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -56,5 +59,25 @@ public class Utils {
     public static void copyToClipboard(String text) {
         java.awt.Toolkit.getDefaultToolkit().getSystemClipboard()
                 .setContents(new java.awt.datatransfer.StringSelection(text), null);
+    }
+
+    public static void alert(String title, String text, String type) {
+        // Alert Type
+        Alert alert = null;
+        if (type.equalsIgnoreCase("error"))
+            alert = new Alert(Alert.AlertType.ERROR);
+        else
+            alert = new Alert(Alert.AlertType.WARNING);
+
+        // Alert Window Settings
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(text);
+
+        // Add a custom icon.
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image(Objects.requireNonNull(Main.class.getResource(Configs.icon)).toString()));
+
+        alert.showAndWait();
     }
 }
