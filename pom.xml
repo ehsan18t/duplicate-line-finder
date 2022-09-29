@@ -60,7 +60,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>dev.pages.ahsan40.dlf/dev.pages.ahsan40.dlf.HelloApplication</mainClass>
+                            <mainClass>dev.pages.ahsan40.dlf/dev.pages.ahsan40.dlf.main.Main</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>
